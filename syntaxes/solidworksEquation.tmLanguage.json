@@ -1,0 +1,78 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Solidworks Equations",
+	"patterns": [
+		{
+			"include": "#invalid"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#units_len"
+		},
+		{
+			"include": "#units_ang"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#constant"
+		}
+	],
+	"repository": {
+		"invalid": {
+			"name": "invalid.illegal",
+			"match": "^[^\"].*\\n"
+		},
+		"comments": {
+			"name": "comment.line.number-sign.solidworks.equation",
+			"begin": "'",
+			"end": "\\n"
+		},
+		"strings": {
+			"name": "string.quoted.double.solidworks.equation",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.solidworks.equation",
+					"match": "\\\\."
+				},
+				{
+					"name": "entity.name.tag",
+					"match": ".*@[^\"]*"
+				}
+			]
+		},
+		"units_len": {
+			"name": "constant.numeric.length.solidworks.equation",
+			"match": "[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))(a|nm|um|mm|cm|m|uin|mil|in|ft)"
+		},
+		"units_ang": {
+			"name": "constant.character.escape.angle.solidworks.equation",
+			"match": "[+-]?((\\d+(\\.\\d*)?)|(\\.\\d+))(deg|rad)"
+		},
+		"operator": {
+			"name": "keyword.operator.solidworks.equation",
+			"match": "[\\+\\-\\*\\/\\^]"
+		},
+		"function": {
+			"name": "entity.name.function.solidworks.equation",
+			"match": "(sin|cos|tan|sec|cosec|cotan|arcsin|arccos|atn|arcsec|arccosec|arccotan|abs|exp|log|sqr|int|sgn)"
+		},
+		"constant": {
+			"name": "constant.character.escape.angle.solidworks.equation",
+			"match": "pi"
+		}
+	},
+	"scopeName": "text.solidworks.equation"
+}
+

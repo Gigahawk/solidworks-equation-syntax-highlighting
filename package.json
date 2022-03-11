@@ -1,0 +1,25 @@
+{
+    "name": "solidworks-equation-syntax-highlighting",
+    "displayName": "Solidworks Equation Syntax Highlighting",
+    "description": "Syntax highlighting for Solidworks equation files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "solidworks.equation",
+            "aliases": ["Solidworks Equations", "solidworks.equation"],
+            "extensions": [".txt"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "solidworks.equation",
+            "scopeName": "text.solidworks.equation",
+            "path": "./syntaxes/solidworksEquation.tmLanguage.json"
+        }]
+    }
+}
